@@ -63,7 +63,7 @@
       $('div.col-auto button.btn.dropdown-toggle span.fas.fa-globe').after('<div  id="sortbylang" class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position:absolute;will-change: transform; top:0px;left:0px;transform: translate3d(-51px, 34px, 0px); max-height:60vh;overflow:auto"></div>');
       var langdropdown = $('#sortbylang')
       $.each(languages_iso, function(val,text){
-        var element= '<a id="{lang}" stuff={minilang}class="dropdown-item" href="#"></a>'
+        var element= '<a id="{lang}" stuff="{minilang}" class="dropdown-item" href="#"></a>'
         langdropdown.append(
             $(element.replace(/{lang}/g, val).replace(/{minilang}/g, text)).html(val)
         );
