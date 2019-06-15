@@ -59,9 +59,9 @@
       let scanlations_groups = [...GetPageScanlations().values()];
       scanlations_groups.unshift('All');
       // inject Scanlation dropdown
-      $('div.col-auto span.fas.fa-users').before('<div class="btn-group"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button><div>');
-      $('div.col-auto button.btn.dropdown-toggle').append($('div.col-auto span.fas.fa-users'));
-      $('div.col-auto button.btn.dropdown-toggle span.fas.fa-users').after('<div  id="sortbyscan" class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position:absolute;will-change: transform; top:0px;left:0px;transform: translate3d(-51px, 34px, 0px); max-height:60vh;overflow:auto"></div>');
+      $('div.col.order-lg-5 span.fas.fa-users').before('<div class="btn-group"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button><div>');
+      $('div.col.order-lg-5 button.btn.dropdown-toggle').append($('div.col-auto span.fas.fa-users'));
+      $('div.col.order-lg-5 button.btn.dropdown-toggle span.fas.fa-users').after('<div  id="sortbyscan" class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position:absolute;will-change: transform; top:0px;left:0px;transform: translate3d(-51px, 34px, 0px); max-height:60vh;overflow:auto"></div>');
       var scandropdown = $('#sortbyscan');
       $.each(scanlations_groups, function(text){
         var element= '<a id="{lang}" stuff="{minilang}" class="dropdown-item" href="#"></a>'
@@ -79,9 +79,9 @@
         }
       });
       //inject languages dropdown
-      $('div.col.order-lg-5 span.fas.fa-globe').before('<div class="btn-group"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button><div>');
-      $('div.col.order-lg-5 button.btn.dropdown-toggle').append($('div.col-auto span.fas.fa-globe'));
-      $('div.col.order-lg-5 button.btn.dropdown-toggle span.fas.fa-globe').after('<div  id="sortbylang" class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position:absolute;will-change: transform; top:0px;left:0px;transform: translate3d(-51px, 34px, 0px); max-height:60vh;overflow:auto"></div>');
+      $('div.col-auto span.fas.fa-globe').before('<div class="btn-group"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button><div>');
+      $('div.col-auto button.btn.dropdown-toggle').append($('div.col-auto span.fas.fa-globe'));
+      $('div.col-auto button.btn.dropdown-toggle span.fas.fa-globe').after('<div  id="sortbylang" class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position:absolute;will-change: transform; top:0px;left:0px;transform: translate3d(-51px, 34px, 0px); max-height:60vh;overflow:auto"></div>');
       var langdropdown = $('#sortbylang')
       $.each(languages_iso, function(val,text){
         var element= '<a id="{lang}" stuff="{minilang}" class="dropdown-item" href="#"></a>'
