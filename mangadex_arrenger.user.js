@@ -19,6 +19,7 @@
 (function () {
     'use strict';
     let languages_iso= {
+        'All': 'reset',
         'Arabic': 'ara',
         'Bengali': 'ben',
         'Bulgarian': 'bul',
@@ -67,9 +68,15 @@
         langdropdown.append(
             $(element.replace(/{lang}/g, val).replace(/{minilang}/g, text)).html(val)
         );
-        $('a[stuff="{minilang}"]'.replace(/{minilang}/g, text)).click(function(){
-            SortByLanguage($(this).attr('id'));
-        })
+        if(val == 'All'){
+            $('a[stuff="{minilang}"]'.replace(/{minilang}/g, text)).click(function(){
+                reverse();
+            });
+        }else{
+            $('a[stuff="{minilang}"]'.replace(/{minilang}/g, text)).click(function(){
+                SortByLanguage($(this).attr('id'));
+            });
+        }
       });
 
 
