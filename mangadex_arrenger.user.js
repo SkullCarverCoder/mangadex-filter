@@ -11,6 +11,9 @@
 // @match        https://mangadex.org/title/*
 // @match        https://www.mangadex.org/title/*
 // @icon         https://mangadex.org/favicon.ico
+// @require      https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js
+// @require      https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/esm/popper.min.js
+// @require      https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js
 // @grant        GM_xmlhttpRequest
 // @grant        GM.setValue
 // @grant        GM.getValue
