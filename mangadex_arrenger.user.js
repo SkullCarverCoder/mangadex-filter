@@ -86,7 +86,7 @@
       $('div.col.order-lg-5 button.btn-success.dropdown-toggle').append($('div.col.order-lg-5 span.fas.fa-users'));
       $('div.col.order-lg-5 button.btn-success.dropdown-toggle span.fas.fa-users').after('<div  id="sortbyscan" class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position:absolute;will-change: transform; top:0px;left:0px;transform: translate3d(-51px, 34px, 0px); max-height:60vh;overflow:auto"></div>');
       var scandropdown = $('#sortbyscan');
-      $.each(scanlations_groups, function(text){
+      $.each(scanlations_groups, function(val,text){
         var element= '<a id="{lang}" stuff="{minilang}" class="dropdown-item" href="#"></a>'
         scandropdown.append(
             $(element.replace(/{lang}/g, text).replace(/{minilang}/g, text)).html(text)
