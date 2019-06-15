@@ -11,9 +11,6 @@
 // @match        https://mangadex.org/title/*
 // @match        https://www.mangadex.org/title/*
 // @icon         https://mangadex.org/favicon.ico
-// @require      https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js
-// @require      https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/esm/popper.min.js
-// @require      https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js
 // @grant        GM_xmlhttpRequest
 // @grant        GM.setValue
 // @grant        GM.getValue
@@ -85,8 +82,8 @@
       });
 
       // inject Scanlation dropdown
-      $('div.col.order-lg-5 span.fas.fa-users').before('<div class="btn-group"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button><div>');
-      $('div.col.order-lg-5 button.btn.dropdown-toggle').append($('div.col-auto span.fas.fa-users'));
+      $('div.col.order-lg-5 span.fas.fa-users').before('<div class="btn-group"><button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button><div>');
+      $('div.col.order-lg-5 button.btn.dropdown-toggle').append($('div.col.order-lg-5 span.fas.fa-users'));
       $('div.col.order-lg-5 button.btn.dropdown-toggle span.fas.fa-users').after('<div  id="sortbyscan" class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position:absolute;will-change: transform; top:0px;left:0px;transform: translate3d(-51px, 34px, 0px); max-height:60vh;overflow:auto"></div>');
       var scandropdown = $('#sortbyscan');
       $.each(scanlations_groups, function(text){
