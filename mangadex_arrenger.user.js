@@ -39,7 +39,7 @@
             });
         }else{
             $('a[stuff="{minilang}"]'.replace(/{minilang}/g, text)).click(function(){
-                SortByLanguage($(this).attr('id'));
+                SortByLanguage($(this).attr('stuff'));
             });
         }
       });
