@@ -110,7 +110,7 @@
             current_lang_present = false;
         }
         if(current_lang_present){
-            let languages = Object.keys(languages_iso);
+            let languages = languages_page;
             for (let index = 0; index < languages.length; index++) {
                 let newselector = selector.replace('{language}', languages[index]);
                 let element = $(newselector);
