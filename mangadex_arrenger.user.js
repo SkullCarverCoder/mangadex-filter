@@ -58,6 +58,7 @@
 
       let scanlations_groups = [...GetPageScanlations().values()];
       scanlations_groups.unshift('All');
+
       //inject languages dropdown
       $('div.col-auto span.fas.fa-globe').before('<div class="btn-group"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button><div>');
       $('div.col-auto button.btn.dropdown-toggle').append($('div.col-auto span.fas.fa-globe'));
@@ -71,6 +72,7 @@
         if(val == 'All'){
             $('a[stuff="{minilang}"]'.replace(/{minilang}/g, text)).click(function(){
                 reverse();
+                console.log('done');
             });
         }else{
             $('a[stuff="{minilang}"]'.replace(/{minilang}/g, text)).click(function(){
@@ -92,6 +94,7 @@
         if(text == 'All'){
             $('a[stuff="{minilang}"]'.replace(/{minilang}/g, text)).click(function(){
                 reverse();
+                console.log('done');
             });
         }else{
             $('a[stuff="{minilang}"]'.replace(/{minilang}/g, text)).click(function(){
@@ -99,7 +102,7 @@
             });
         }
       });
-      
+
       function GetPageScanlations(){
           let dirty = [];
           let catcher = $('div.chapter-list-group a');
