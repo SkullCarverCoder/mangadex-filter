@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name         MangaDex Sorter
+// @name         MangaDex Filter
 // @version      0.1
 // @description  A userscript to sort mangadex manga by language scanlation
 // @author       SkullCarverCoder
 // @homepage     https://github.com/SkullCarverCoder
-// @updateURL    https:/raw.githubusercontent.com/SkullCarverCoder/mangadex-sorter/master/mangadex_arrenger.user.js
-// @downloadURL  https:/raw.githubusercontent.com/SkullCarverCoder/mangadex-sorter/master/mangadex_arrenger.user.js
+// @updateURL    https:/raw.githubusercontent.com/SkullCarverCoder/mangadex-filter/master/mangadex_arrenger.user.js
+// @downloadURL  https:/raw.githubusercontent.com/SkullCarverCoder/mangadex-filter/master/mangadex_arrenger.user.js
 // @match        https://mangadex.org/settings
 // @match        https://www.mangadex.org/settings
 // @match        https://mangadex.org/title/*
