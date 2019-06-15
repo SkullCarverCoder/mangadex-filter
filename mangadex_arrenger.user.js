@@ -4,8 +4,8 @@
 // @description  A userscript to sort mangadex manga by language scanlation
 // @author       SkullCarverCoder
 // @homepage     https://github.com/SkullCarverCoder
-// @updateURL    https://raw.githubusercontent.com/xicelord/mangadex-scripts/master/mangadex-downloader.user.js
-// @downloadURL  https://raw.githubusercontent.com/xicelord/mangadex-scripts/master/mangadex-downloader.user.js
+// @updateURL    https:/raw.githubusercontent.com/SkullCarverCoder/mangadex-sorter/master/mangadex_arrenger.user.js
+// @downloadURL  https:/raw.githubusercontent.com/SkullCarverCoder/mangadex-sorter/master/mangadex_arrenger.user.js
 // @match        https://mangadex.org/settings
 // @match        https://www.mangadex.org/settings
 // @match        https://mangadex.org/title/*
@@ -57,8 +57,9 @@
       };
 
       let scanlations_groups = [...GetPageScanlations().values()];
+      scanlations_groups.unshift('All');
 
-      //inject dropdowns
+      //inject languages dropdown
       $('div.col-auto span.fas.fa-globe').before('<div class="btn-group"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button><div>');
       $('div.col-auto button.btn.dropdown-toggle').append($('div.col-auto span.fas.fa-globe'));
       $('div.col-auto button.btn.dropdown-toggle span.fas.fa-globe').after('<div  id="sortbylang" class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position:absolute;will-change: transform; top:0px;left:0px;transform: translate3d(-51px, 34px, 0px); max-height:60vh;overflow:auto"></div>');
@@ -78,6 +79,26 @@
             });
         }
       });
+      // inject Scanlation dropdown
+      $('div.col-auto span.fas.fa-users').before('<div class="btn-group"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button><div>');
+      $('div.col-auto button.btn.dropdown-toggle').append($('div.col-auto span.fas.fa-users'));
+      $('div.col-auto button.btn.dropdown-toggle span.fas.fa-users').after('<div  id="sortbyscan" class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position:absolute;will-change: transform; top:0px;left:0px;transform: translate3d(-51px, 34px, 0px); max-height:60vh;overflow:auto"></div>');
+      var scandropdown = $('#sortbyscan');
+      $.each(scanlations_groups, function(text){
+        var element= '<a id="{lang}" stuff="{minilang}" class="dropdown-item" href="#"></a>'
+        scandropdown.append(
+            $(element.replace(/{lang}/g, text).replace(/{minilang}/g, text)).html(text)
+        );
+        if(text == 'All'){
+            $('a[stuff="{minilang}"]'.replace(/{minilang}/g, text)).click(function(){
+                reverse();
+            });
+        }else{
+            $('a[stuff="{minilang}"]'.replace(/{minilang}/g, text)).click(function(){
+                SortByScanlation($(this).attr('stuff'));
+            });
+        }
+      });
 
 
       function GetPageScanlations(){
@@ -89,6 +110,7 @@
           return new Set(dirty);
       }
       function SortByScanlation(Group){
+        reverse();
         let selector = 'div.chapter-list-group a'
         let catcher = $(selector);
         for (let index = 0; index < catcher.length; index++) {
@@ -105,14 +127,24 @@
           }).css('display', '');
       }
       function SortByLanguage(lang){
+        reverse();
         let selector = 'div.chapter-list-flag span[title="{language}"]';
-        let languages = Object.keys(languages_iso);
-        for (let index = 0; index < languages.length; index++) {
-            let newselector = selector.replace('{language}', languages[index]);
-            let element = $(newselector);
-            if(element.attr('title') != lang && element.length > 0){
+        let current_lang_present = false;
+        //verify if language present
+        if ($(selector.replace('{language}', lang).length > 0)){
+            current_lang_present = true;
+        }else{
+            current_lang_present = false;
+        }
+        if(current_lang_present){
+            let languages = Object.keys(languages_iso);
+            for (let index = 0; index < languages.length; index++) {
+                let newselector = selector.replace('{language}', languages[index]);
+                let element = $(newselector);
+                if(element.attr('title') != lang && element.length > 0){
                     element.parent().parent().parent().css('display','none');
+                }
             }
-      }
+        }
     }
 })();
