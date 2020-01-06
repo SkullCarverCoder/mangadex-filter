@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         MangaDex Filter
-// @version      0.1
+// @version      0.1.0
 // @description  A userscript to sort mangadex manga by language scanlation
 // @author       SkullCarverCoder
 // @homepage     https://github.com/SkullCarverCoder
@@ -10,6 +10,11 @@
 // @match        https://www.mangadex.org/settings
 // @match        https://mangadex.org/title/*
 // @match        https://www.mangadex.org/title/*
+// @match        https://mangadex.cc/settings
+// @match        https://www.mangadex.cc/settings
+// @match        https://mangadex.cc/title/*
+// @match        https://www.mangadex.cc/title/*
+// @icon         https://mangadex.cc/favicon.ico
 // @icon         https://mangadex.org/favicon.ico
 // @grant        GM_xmlhttpRequest
 // @grant        GM.setValue
